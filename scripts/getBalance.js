@@ -3,7 +3,7 @@ require("dotenv").config();
 
 const { ACCOUNT_ADDRESS, CONTRACT_ADDRESS } = process.env;
 
-const contractOnAmoy = "0x44F8f3b7b5F49cBEaDc517cd1a7a67b3EF607328";
+const contractOnAmoy = "0xE4E9aE0Ea1Dfc216867594fb55428C2726b607a1";
 
 async function main() {
   const MetaNFT = await hre.ethers.getContractFactory("MetaNFT");
@@ -13,7 +13,11 @@ async function main() {
 
   const [signer] =   await hre.ethers.getSigners();
 
-  console.log("Your MetaNFT Balance is: ", balance.toString());
+  console.log(`
+    Your MetaNFT Balance on
+    ${contractOnAmoy}
+    is: ${balance.toString()}
+    `);
 }
 
 main().catch((error) => {

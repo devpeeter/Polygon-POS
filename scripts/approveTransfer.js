@@ -6,6 +6,7 @@ const { ACCOUNT_ADDRESS, CONTRACT_ADDRESS } = process.env;
 
 fxERC721RootAddress = "0x9e688939cb5d484e401933d850207d6750852053";
 
+//0xc6fB3fe7C22220862A1b403e5FECE8F13bcB61CE
 
 async function main() {
   const [deployer] = await hre.ethers.getSigners();
