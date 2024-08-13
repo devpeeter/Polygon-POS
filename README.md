@@ -5,6 +5,33 @@ Meta NFT is a a simple solidity smart contract that bridges NFT from the Ethereu
 This smart contract deploys an NFT smart contract on the Ethereum chain, mints the NFT to an address, and then approves and transfers the NFT to the Polygon chain.
 
 The smart contract has 4 functions:
+```javascript
+// SPDX-License-Identifier: UNLICENSED 
+pragma solidity ^0.8.20;
+
+import "erc721a/contracts/ERC721A.sol";
+
+contract MetaNFT is ERC721A {
+
+    constructor() ERC721A("MetaNFT", "MNFT") {}
+
+    function safeMint(uint8 _quantity) external payable {
+        _safeMint(msg.sender, _quantity);
+    }
+
+    function _baseURI() internal pure override returns (string memory) {
+        return "https://ipfs.io/ipfs/QmQVQCaW65eFaHJ68hZbqnRF4xz5ifi4KF1qWEqVn5RNgB/1.png";
+    }
+
+    function promptDescription() external pure returns (string memory) {
+        return "This is a set of cute but powerful ninja cats";
+    }
+
+    function balanceOf(address owner) public view override returns (uint256) {
+        return super.balanceOf(owner);
+    }
+}
+```
 
 - ```safeMint()```: This acts as the batchMint in the ERC1155 where you can mint as many quantities of NFT in a single transaction.
 -  ```_baseURI()```: This gets the base URI for the images. This is mostly useful for the NFT marketplace to display the NFTs.
