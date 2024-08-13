@@ -24,7 +24,7 @@ After cloning the project on Github, do the following to get the code running on
 - When the minting is done, go ahead and approve and transfer to the Polygon chain by running the following command ```run scripts/metaNFT/approveTransfer.js --network sepolia```. 
 - It will take about 20-30minutes before the transaction reflects on Polygon.
 - After about 20-30minutes and the transaction has reflected, copy the amoy contract address, paste it in the ```getBalance.js``` file where you have...
-- ```javascript
+ ```javascript
   const contractOnAmoy = "0x44F8f3b7b5F49cBEaDc517cd1a7a67b3EF607328";
   ```
 - Once that is done, check the balance on Polygon by running this command ```npx hardhat run scripts/metaNFT/getBalance.js --network amoy```
